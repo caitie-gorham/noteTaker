@@ -25,7 +25,16 @@ app.get("/notes", function (req, res) {
     res.sendFile(path.join(__dirname, "public", "notes.html"));
 });
 
-// need to add get request for notes api 
+// get request for notes api
+app.get("/api/notes", function (req, res) {
+    fs.readFile("./db/db.json", function (err, file) {
+        if (err) throw err;
+        let JSONFile = JSON.parse(file);
+        console.log(JSONFile)
+        // console.log logs "[ { title: 'Test Title', text: 'Test text' } ]"
+        // how to return the JSON to the api? --> probably need to use .json method
+    });
+})
 
 // need to add post requests for api to read notes JSON and write to notes JSON
 
