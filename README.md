@@ -19,6 +19,7 @@ This is an application that allows the user to type in and save notes, and then 
 To use this application, clone the repo, run npm intall, and then run node server.js. This will allow you to create and save new notes. 
 
 You can find the GitHub repo here: https://github.com/caitie-gorham/noteTaker
+Heroku App [NOT CURRENTLY WORKING]: https://note-taker-caitie-gorham.herokuapp.com
 
 # Details
 
