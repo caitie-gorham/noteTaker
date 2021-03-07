@@ -32,7 +32,7 @@ app.get("/api/notes", function (req, res) {
         let JSONFile = JSON.parse(file);
         console.log(JSONFile)
         // console.log logs "[ { title: 'Test Title', text: 'Test text' } ]"
-        // how to return the JSON to the api? --> probably need to use .json method
+        return res.json(JSONFile);
     });
 })
 
@@ -52,7 +52,6 @@ app.post("/api/notes", function (req, res) {
   });
 
 // need to research the delete functionality for bonus
-
 
 // Starts the server to begin listening
 
