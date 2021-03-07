@@ -20,6 +20,8 @@ To use this application, clone the repo, run npm intall, and then run node serve
 
 You can find the GitHub repo here: https://github.com/caitie-gorham/noteTaker
 
+Heroku App [NOT CURRENTLY WORKING]: https://note-taker-caitie-gorham.herokuapp.com
+
 # Details
 
 This is an application that allows users to create, save and access text notes in a browser. The user comes first to a home page, then can click the button to go to the notes page. On the notes page, the user can write a new note with a title, and save that note. They can also access previous notes by clicking on them in the left-hand side menu. 
