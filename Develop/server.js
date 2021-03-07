@@ -3,6 +3,8 @@
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
+// add nanoid npm to create unique ID
+const nano = require('nanoid')
 
 // Sets up the Express App
 
@@ -43,16 +45,19 @@ app.post("/api/notes", function (req, res) {
       let newJSON = {
         title: req.body.title,
         text: req.body.text,
+        // add id with nanoid
+        id: nano.nanoid(10)
       };
       JSONFile.push(newJSON);
-      fs.writeFile("./db/db.json", JSON.stringify(JSONFile), (err) => {
+      fs.writeFile("./db/db.json", JSON.stringify(JSONFile, null, 2), (err) => {
         if (err) throw err;
+        res.send("200");
       });
     });
   });
 
 // need to research the delete functionality for bonus
 
-// Starts the server to begin listening
+// Starts the server
 
 app.listen(PORT, () => console.log(`App listening on PORT ${PORT}`));
