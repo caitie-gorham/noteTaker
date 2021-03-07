@@ -36,7 +36,20 @@ app.get("/api/notes", function (req, res) {
     });
 })
 
-// need to add post requests for api to read notes JSON and write to notes JSON
+app.post("/api/notes", function (req, res) {
+    fs.readFile("./db/db.json", function (err, post) {
+      if (err) throw err;
+      let JSONFile = JSON.parse(post);
+      let newJSON = {
+        title: req.body.title,
+        text: req.body.text,
+      };
+      JSONFile.push(newJSON);
+      fs.writeFile("./db/db.json", JSON.stringify(JSONFile), (err) => {
+        if (err) throw err;
+      });
+    });
+  });
 
 // need to research the delete functionality for bonus
 
