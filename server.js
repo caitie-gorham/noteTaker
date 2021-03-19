@@ -1,33 +1,32 @@
 // Dependencies
-
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
-// add nanoid npm to create unique ID
+// add npm nanoid to create unique ID
 const nano = require('nanoid')
 
-// request creation
-const { request } = require("http");
-
 // Sets up the Express App
-
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(express.static("public"));
 
+// middleware
+// url encoding parses request
+app.use(express.urlencoded({ extended: true }));
+// parses requests with JSON
+app.use(express.json());
+// used to indicate where your assets are that need to be served by the server
+app.use(express.static("public"));
+console.log(__dirname);
 // get requests
 // request for index.html (home) url
 app.get("/", function (req, res) {
-    res.sendFile(path.join(__dirname, "public", "index.html"));
+    res.sendFile(path.join(__dirname, "public/index.html"));
 });
-
 
 // request for notes.html (note-taking page) url
 app.get("/notes", function (req, res) {
-    res.sendFile(path.join(__dirname, "public", "notes.html"));
+    res.sendFile(path.join(__dirname, "public/notes.html"));
 });
 
 // get request for notes api
