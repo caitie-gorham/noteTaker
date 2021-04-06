@@ -34,7 +34,7 @@ app.get("/api/notes", function (req, res) {
     fs.readFile("./db/db.json", function (err, file) {
         if (err) throw err;
         let JSONFile = JSON.parse(file);
-        console.log(JSONFile)
+        // console.log(JSONFile)
         // console.log logs "[ { title: 'Test Title', text: 'Test text' } ]"
         return res.json(JSONFile);
     });
@@ -57,8 +57,6 @@ app.post("/api/notes", function (req, res) {
       });
     });
   });
-
-// need to research the delete functionality for bonus
 
 // Starts the server
 
